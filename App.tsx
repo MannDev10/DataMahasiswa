@@ -4,7 +4,10 @@ import { StatusBar, LogBox } from 'react-native';
 import { PaperProvider } from 'react-native-paper';
 import AppNavigator from './src/router/routes';
 import { Colors } from './src/utils/utilities';
+import 'moment/locale/id'
+import moment from 'moment';
 
+moment.locale('id')
 function App(): React.JSX.Element {
   const [init, setInit] = React.useState(false)
   const [isAppReady, setAppReady] = React.useState(false)

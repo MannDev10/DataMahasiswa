@@ -4,9 +4,11 @@ import { Image, TouchableOpacity } from 'react-native'
 import { Assets } from '../../assets';
 import { Colors } from '../../utils/utilities';
 import Icons from 'react-native-vector-icons/MaterialCommunityIcons'
+import { useNavigation } from '@react-navigation/native';
 
 const LoginScreen = () => {
-    const [isPassword, setPassword] = React.useState(false)
+    const navigation: any = useNavigation()
+    const [isPassword, setPassword] = React.useState(true)
 
     return (
         <View flex={1} backgroundColor={Colors.PRIMARY}>
@@ -34,7 +36,7 @@ const LoginScreen = () => {
                                 <Icons
                                     style={{ marginHorizontal: 10 }}
                                     onPress={() => setPassword(!isPassword)}
-                                    name={isPassword ? "eye-off" : "eye"}
+                                    name={isPassword ? "eye" : "eye-off"}
                                     color={'#fff'}
                                     size={25}
                                 ></Icons>
@@ -42,7 +44,7 @@ const LoginScreen = () => {
                         ></Input>
                     </View>
                     <View width={'100%'}>
-                        <TouchableOpacity activeOpacity={0.5} style={{ width: '100%' }}>
+                        <TouchableOpacity onPress={() => navigation.navigate('Home')} activeOpacity={0.5} style={{ width: '100%' }}>
                             <Center backgroundColor={Colors.SECONDARY} width={'100%'} paddingY={3} borderRadius={'full'}>
                                 <Text color={'#fff'} fontSize={"md"}>SUBMIT</Text>
                             </Center>
