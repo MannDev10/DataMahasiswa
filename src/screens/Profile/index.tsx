@@ -2,7 +2,7 @@ import { useNavigation } from '@react-navigation/native'
 import { Center, Input, ScrollView, Stack, Text, View } from 'native-base'
 import React from 'react'
 import { TouchableOpacity } from 'react-native'
-import { Header } from '../../components/navigation/header'
+import { Header } from '../../components/Navigation/header'
 import { Colors } from '../../utils/utilities'
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import moment from 'moment'

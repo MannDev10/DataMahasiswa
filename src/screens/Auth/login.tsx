@@ -51,7 +51,7 @@ const LoginScreen = () => {
                         </TouchableOpacity>
                         <Stack direction={'row'} alignItems={'center'} justifyContent={'center'} space={1} marginTop={5}>
                             <Text color={"#fff"} fontSize={"md"}>Belum punya akun?</Text>
-                            <TouchableOpacity activeOpacity={0.5}>
+                            <TouchableOpacity activeOpacity={0.5} onPress={() => navigation.navigate('Register')}>
                                 <Text color={Colors.SECONDARY} fontSize={"md"}>Daftar disini!</Text>
                             </TouchableOpacity>
                         </Stack>

@@ -2,7 +2,7 @@ import { useNavigation } from '@react-navigation/native'
 import { Center, FlatList, Stack, Text, View } from 'native-base'
 import React from 'react'
 import Spinner from 'react-native-spinkit'
-import { Header } from '../../components/navigation/header'
+import { Header } from '../../components/Navigation/header'
 import { Colors, Constant } from '../../utils/utilities'
 
 const SemesterData = [

@@ -9,6 +9,7 @@ import SemesterGradeScreen from '../screens/SemesterGrades';
 import SubjectGradeScreen from '../screens/SubjectGrades';
 import TranscriptScreen from '../screens/Transcripts';
 import ChangePasswordScreen from '../screens/ChangePassword';
+import RegisterScreen from '../screens/Auth/register';
 
 const Stack = createStackNavigator();
 
@@ -55,6 +56,7 @@ const AppNavigator = () => {
                 detachInactiveScreens
             >
                 <Stack.Screen name={"Login"} component={LoginScreen} options={{ ...horizontalAnimation }}></Stack.Screen>
+                <Stack.Screen name={"Register"} component={RegisterScreen} options={{ ...verticalAnimation }}></Stack.Screen>
                 <Stack.Screen name={"Home"} component={HomeScreen}></Stack.Screen>
                 <Stack.Screen name={"Profile"} component={ProfileScreen} options={{ ...horizontalAnimation }}></Stack.Screen>
                 <Stack.Screen name={"SemesterGrades"} component={SemesterGradeScreen} options={{ ...horizontalAnimation }}></Stack.Screen>

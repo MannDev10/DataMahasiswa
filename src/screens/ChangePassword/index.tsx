@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/native'
 import { Center, Input, ScrollView, Stack, Text, View } from 'native-base'
 import React from 'react'
-import { Header } from '../../components/navigation/header'
+import { Header } from '../../components/Navigation/header'
 import { Colors } from '../../utils/utilities'
 import Icons from 'react-native-vector-icons/MaterialCommunityIcons'
 import { TouchableOpacity } from 'react-native'

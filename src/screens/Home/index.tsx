@@ -7,6 +7,7 @@ import { ImageBackground, TouchableOpacity } from 'react-native';
 import Icons from 'react-native-vector-icons/MaterialCommunityIcons'
 import { Assets } from '../../assets';
 import moment from 'moment'
+import { Logout } from '../../components/Auth/logout';
 
 const HomeList = [
     { icon: 'account', label: 'Profil', link: 'Profile' },
@@ -21,6 +22,7 @@ const HomeScreen = () => {
     const navigation: any = useNavigation()
     const [init, setInit] = React.useState(false)
     const [HomeData, setHomeData] = React.useState<any[]>([])
+    const [isLogout, setLogout] = React.useState(false)
 
     React.useEffect(() => {
         setHomeData(HomeList)
@@ -29,8 +31,10 @@ const HomeScreen = () => {
     const onNavigate = React.useCallback((link: string) => {
         if (link.length !== 0) {
             navigation.navigate(link)
+        } else {
+            setLogout(true)
         }
-    }, [navigation])
+    }, [navigation, isLogout])
 
     return (
         <View flex={1} backgroundColor={Colors.PRIMARY}>
@@ -44,7 +48,7 @@ const HomeScreen = () => {
                     <Box width={"100%"} backgroundColor={"#00000080"} borderBottomLeftRadius={30} borderBottomRightRadius={30} style={{ aspectRatio: 2.5 }}>
                         <Stack direction={'column'} padding={5} justifyContent={'space-between'} height={'100%'}>
                             <View width={'100%'} alignItems={'flex-end'}>
-                                <Text color={"#fff"} fontSize={"sm"}>{moment().format('dddd, DD-MM-YYYY')}</Text>
+                                <Text color={"#fff"} fontSize={"sm"}>{moment().format('dddd, DD/MM/YYYY')}</Text>
                             </View>
                             <Text color={'#fff'} fontSize={'xl'}>
                                 Selamat Datang,{'\n'}<Text fontWeight={'700'} fontSize={'2xl'}>Firman Maulana!</Text>
@@ -76,6 +80,7 @@ const HomeScreen = () => {
                     />
                 </View>
             </ScrollView>
+            <Logout isOpen={isLogout} onClose={() => setLogout(false)} navigation={navigation} />
         </View >
     )
 }

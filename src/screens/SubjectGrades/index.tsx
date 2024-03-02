@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/native'
 import { Center, ScrollView, Text, View } from 'native-base'
 import React from 'react'
-import { Header } from '../../components/navigation/header'
+import { Header } from '../../components/Navigation/header'
 import { Colors, Constant } from '../../utils/utilities'
 import { Table, Row } from 'react-native-reanimated-table';
 import Spinner from 'react-native-spinkit'
