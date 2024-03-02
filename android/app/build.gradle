@@ -2,6 +2,24 @@ apply plugin: "com.android.application"
 apply plugin: "org.jetbrains.kotlin.android"
 apply plugin: "com.facebook.react"
 
+project.ext.vectoricons = [
+    iconFontNames: [ 
+        'MaterialCommunityIcons.ttf', 
+        'MaterialIcons.ttf', 
+        'Ionicons.ttf',
+        'Foundation.ttf',
+        'Fontisto.ttf',
+        'FontAwesome5.ttf',
+        'Feather.ttf',
+        'EvilIcons.ttf',
+        'Entypo.ttf',
+        'AntDesign.ttf'
+    ]
+]
+apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
+
+import com.android.build.OutputFile
+
 /**
  * This is the configuration block to customize your React Native Android app.
  * By default you don't need to apply any configuration, just uncomment the lines you need.
@@ -55,6 +73,7 @@ react {
  * Set this to true to Run Proguard on Release builds to minify the Java bytecode.
  */
 def enableProguardInReleaseBuilds = false
+def enableSeparateBuildPerCPUArchitecture = true
 
 /**
  * The preferred build flavor of JavaScriptCore (JSC)
@@ -68,6 +87,10 @@ def enableProguardInReleaseBuilds = false
  * this variant is about 6MiB larger per architecture than default.
  */
 def jscFlavor = 'org.webkit:android-jsc:+'
+def reactNativeArchitectures() {
+    def value = project.getProperties().get("reactNativeArchitectures")
+    return value ? value.split(",") : ["armeabi-v7a", "x86", "x86_64", "arm64-v8a"]
+}
 
 android {
     ndkVersion rootProject.ext.ndkVersion
@@ -102,12 +125,25 @@ android {
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
     }
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            def versionCodes = ["armeabi-v7a": 1, "x86": 2, "arm64-v8a": 3, "x86_64": 4]
+            def abi = output.getFilter(OutputFile.ABI)
+            if (abi != null) {
+                output.versionCodeOverride =
+                        defaultConfig.versionCode * 1000 + versionCodes.get(abi)
+            }
+
+        }
+    }
 }
 
 dependencies {
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.0.0")
     implementation("com.facebook.react:flipper-integration")
+    implementation project(':react-native-spinkit')
 
     if (hermesEnabled.toBoolean()) {
         implementation("com.facebook.react:hermes-android")
