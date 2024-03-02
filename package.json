@@ -31,6 +31,7 @@
     "react-native-modal-datetime-picker": "^17.1.0",
     "react-native-pager-view": "^6.2.3",
     "react-native-paper": "^5.12.3",
+    "react-native-reanimated-table": "^0.0.2",
     "react-native-safe-area-context": "3.3.2",
     "react-native-screens": "^3.29.0",
     "react-native-spinkit": "^1.5.1",

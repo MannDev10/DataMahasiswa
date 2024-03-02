@@ -34,7 +34,6 @@ const ChangePasswordScreen = () => {
                                 placeholder={'Password Lama'}
                                 size={'lg'}
                                 color={'#000'}
-                                isDisabled={true}
                             ></Input>
                             <Input
                                 type={isNewPassword ? 'password' : 'text'}
@@ -51,7 +50,6 @@ const ChangePasswordScreen = () => {
                                 placeholder={'Password Baru'}
                                 size={'lg'}
                                 color={'#000'}
-                                isDisabled={true}
                             ></Input>
                             <Input
                                 type={isConfirmPassword ? 'password' : 'text'}
@@ -68,7 +66,6 @@ const ChangePasswordScreen = () => {
                                 placeholder={'Konfirmasi Password Baru'}
                                 size={'lg'}
                                 color={'#000'}
-                                isDisabled={true}
                             ></Input>
                         </Stack>
                     </View>

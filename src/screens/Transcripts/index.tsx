@@ -9,7 +9,9 @@ const TranscriptScreen = () => {
 
     return (
         <View flex={1} backgroundColor={Colors.PRIMARY}>
-            <Header navigation={navigation} text={'Transkrip Nilai'} />
+            <View padding={5}>
+                <Header navigation={navigation} text={'Transkrip Nilai'} />
+            </View>
         </View>
     )
 }

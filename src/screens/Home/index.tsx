@@ -10,8 +10,8 @@ import moment from 'moment'
 
 const HomeList = [
     { icon: 'account', label: 'Profil', link: 'Profile' },
-    { icon: 'clipboard-list-outline', label: 'Nilai per Semester', link: 'SemesterGrades' },
     { icon: 'format-list-checks', label: 'Nilai per Mata Kuliah', link: 'SubjectGrades' },
+    { icon: 'clipboard-list-outline', label: 'Nilai per Semester', link: 'SemesterGrades' },
     { icon: 'table-star', label: 'Transkrip Nilai', link: 'Transcripts' },
     { icon: 'form-textbox-password', label: 'Ubah Password', link: 'ChangePassword' },
     { icon: 'location-exit', label: 'Logout', link: '' },
@@ -66,7 +66,7 @@ const HomeScreen = () => {
                                     borderColor={'#fff'}
                                     style={{ aspectRatio: 1 }}
                                 >
-                                    <Stack direction={'column'} space={1} alignItems={'center'}>
+                                    <Stack direction={'column'} space={1} alignItems={'center'} paddingX={3}>
                                         <Icons name={item.icon} color={Colors.SECONDARY} size={Constant.WINDOW_WIDTH / 8}></Icons>
                                         <Text color={"#fff"} textAlign={'center'} fontSize={'md'}>{item.label}</Text>
                                     </Stack>
