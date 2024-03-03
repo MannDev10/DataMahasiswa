@@ -112,6 +112,12 @@ android {
             keyAlias 'androiddebugkey'
             keyPassword 'android'
         }
+        release {
+            storeFile file('release.keystore')
+            storePassword 'dmapp123'
+            keyAlias 'DMKey'
+            keyPassword 'dmapp123'
+        }
     }
     buildTypes {
         debug {
